@@ -1,8 +1,9 @@
 //
 const http = require('http');
 
-// app object - module scaffolding
+const url = require('url');
 
+// app object - module scaffolding
 const app = {};
 
 //Configuration
@@ -18,11 +19,12 @@ app.createServer = ()=>{
     })
 };
 
+
 //handle request response
 app.handleReqRes = (req, res)=>{
     //response handle
     res.end('Hello World'); 
 }
 
-app.createServer()
+app.createServer();
 
