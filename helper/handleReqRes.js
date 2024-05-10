@@ -15,7 +15,7 @@ const { StringDecoder } = require('string_decoder')
 
 const handler = {};
 
-app.handleReqRes = (req, res)=>{
+handler.handleReqRes = (req, res)=>{
     //response handle
     const parsedUrl = url.parse(req.url, true);
     const path = parsedUrl.pathname;
