@@ -9,9 +9,11 @@
 const handler = {};
 
 
-handler.notFoundHandler = () =>{
-    
-    console.log("NotFoundHandler");
+handler.notFoundHandler = ( requestProperties, callback) =>{
+
+    callback(404, {
+        message : "Requested url was not found"
+    })
 }
 
 module.exports = handler;
