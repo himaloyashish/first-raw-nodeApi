@@ -24,10 +24,20 @@ handler.handleReqRes = (req, res)=>{
     const queryStringObject = parsedUrl.query;
     const headersObject = req.headers;
 
+    const requestProperties = {
+        parsedUrl,
+        path,
+        trimmEdPath,
+        method,
+        queryStringObject,
+        headersObject
+
+    }
 
     const decoder = new StringDecoder('utf-8'); 
     let realData = '';
 
+    const chosenHandler = rou
 
     req.on('data', (buffer) => {
         realData += decoder.write(buffer)
