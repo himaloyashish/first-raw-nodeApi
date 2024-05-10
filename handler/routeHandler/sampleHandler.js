@@ -4,3 +4,13 @@
  * Author : Himaloy Ashish
  * 
 */
+
+const handler = {};
+
+
+handler.sampleHandler = () =>{
+    console.log("SampleHandler");
+}
+
+module.exports = handler;
+

@@ -10,6 +10,7 @@
 // Dependencies
 
 const url = require('url');
+const route = require('.')
 const { StringDecoder } = require('string_decoder')
 
 
@@ -37,7 +38,7 @@ handler.handleReqRes = (req, res)=>{
     const decoder = new StringDecoder('utf-8'); 
     let realData = '';
 
-    const chosenHandler = rou
+    const chosenHandler = rout
 
     req.on('data', (buffer) => {
         realData += decoder.write(buffer)
