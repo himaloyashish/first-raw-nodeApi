@@ -1,7 +1,7 @@
 //
 const http = require('http');
 
-const {handleReqRes }  = require('./helper/handleReqRes');
+const { handleReqRes }  = require('./helper/handleReqRes');
 
 // app object - module scaffolding
 const app = {};
@@ -13,7 +13,7 @@ app.config= {
 
 //createServer
 app.createServer = ()=>{
-    const server = http.createServer(app.handleReqRes);
+    const server = http.createServer( app.handleReqRes );
     server.listen(app.config.port, ()=>{
         console.log(`listening the port ${app.config.port}`);
     })

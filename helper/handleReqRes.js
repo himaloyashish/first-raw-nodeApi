@@ -43,13 +43,14 @@ handler.handleReqRes = (req, res)=>{
 
     chosenHandler(requestProperties, ( statusCode, payload)=>{
 
-        statusCode = typeof(statusCode) === "number" ? statusCode : 500;
-        payload = typeof(payload) === 'object' ? payload : {};
+        statusCode = typeof(statusCode) == "number" ? statusCode : 500;
+        payload = typeof(payload) == 'object' ? payload : {};
 
         const payloadString = JSON.stringify(payload)
 
         // Return the final response 
         res.writeHead(statusCode);
+        res.end(payloadString);
     } )
 
     req.on('data', (buffer) => {
@@ -59,8 +60,8 @@ handler.handleReqRes = (req, res)=>{
 
     req.on('end', () =>{
         realData += decoder.end();
-        console.log(realData);
 
+        console.log(realData);
         res.end('Hello World'); 
 
     })
