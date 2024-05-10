@@ -10,8 +10,9 @@
 // Dependencies
 
 const url = require('url');
-const route = require('.')
-const { StringDecoder } = require('string_decoder')
+const route = require('../route');
+const { StringDecoder } = require('string_decoder');
+const { notFoundHandler } = require('../handler/routeHandler/notFoundHandler');
 
 
 const handler = {};
@@ -38,7 +39,18 @@ handler.handleReqRes = (req, res)=>{
     const decoder = new StringDecoder('utf-8'); 
     let realData = '';
 
-    const chosenHandler = rout
+    const chosenHandler = route[trimmEdPath] ? route[trimmEdPath] : notFoundHandler;
+
+    chosenHandler(requestProperties, ( statusCode, payload)=>{
+
+        statusCode = typeof(statusCode) === "number" ? statusCode : 500;
+        payload = typeof(payload) === 'object' ? payload : {};
+
+        const payloadString = JSON.stringify(payload)
+
+        // Return the final response 
+        res.writeHead(statusCode);
+    } )
 
     req.on('data', (buffer) => {
         realData += decoder.write(buffer)

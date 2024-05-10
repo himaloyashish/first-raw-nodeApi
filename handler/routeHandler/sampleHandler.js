@@ -8,8 +8,12 @@
 const handler = {};
 
 
-handler.sampleHandler = () =>{
-    console.log("SampleHandler");
+handler.sampleHandler = ( requestProperties, callback) =>{
+
+    callback(2000, {
+        message : "This is a sample url"
+    })
+
 }
 
 module.exports = handler;
