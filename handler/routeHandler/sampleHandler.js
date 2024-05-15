@@ -19,4 +19,3 @@ handler.sampleHandler = ( requestProperties, callback) =>{
 
 
 module.exports = handler;
-
