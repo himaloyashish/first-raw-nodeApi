@@ -7,7 +7,6 @@
 
 const handler = {};
 
-
 handler.sampleHandler = ( requestProperties, callback) =>{
 
     console.log(requestProperties);
